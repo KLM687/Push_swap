@@ -10,32 +10,88 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h> 
+#include <signal.h> 
+#include <sys/types.h> 
+#include <time.h>
 #include "minitalk.h"
 
-void    ft_handler(int sig)
+static char     bi;
+
+int     ft_convdec(int value)
+{
+    int pow;
+    int dec;
+    int modulo;
+
+    pow = 1;
+    dec = 0;
+    modulo = 0;
+    while (value > 0)
+    {
+        modulo = value % 10;
+        if (modulo == 1)
+            dec += pow;
+        value /= 10;
+        pow *= 2;
+    }
+    return (dec);
+}
+
+void    ft_conv(char *str)
+{
+    int     dec;
+    char    c;
+    
+    dec = ft_atoi(str);
+    c = ft_convdec(dec);
+    write(1, &c, 1);
+}
+
+void   ft_handler(int sig, siginfo_t *info, void *secret)
 {
     if (sig == SIGUSR1)
-        printf("i get the fucking signal 1\n");
+        bi = '0';
     if (sig == SIGUSR2)
-        printf("i get the fucking signal 2\n");
+        bi = '1';
+    kill((info->si_pid), SIGUSR1);
+}
+
+int     ft_fill(char *str, int nb)
+{
+    str[nb] = bi;
+    nb++;
+    if (nb == 8)
+    {
+        ft_conv(str);
+        nb = 0;
+    }
+    return (nb);
 }
 
 int main (void)
 {
+    char    *str;
+    int     nb;
     struct sigaction sa;
-    sigset_t block_mask;
 
-    sa.sa_handler = ft_handler;
-    sa.sa_mask = block_mask;
-    sa.sa_flags = 0;
+    nb = 0;
+    sa.sa_sigaction = ft_handler;
+    sa.sa_flags = SA_RESTART | SA_SIGINFO;
     sigaction(SIGUSR1, &sa, NULL );
     sigaction(SIGUSR2, &sa, NULL );
     printf("PID = %d\n",getpid());
-    printf("waiting\n");
+    str = malloc(sizeof(int) * 8);
+    if (!str)
+    {
+        free(str);
+        return (EXIT_FAILURE);
+    }
     while(1)
     {
-        //printf("waiting\n");
-        sleep(1);
+        pause();
+        nb = ft_fill(str, nb);
     }
-
 }
