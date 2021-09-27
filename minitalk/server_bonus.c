@@ -77,18 +77,14 @@ int main (void)
     char    str[8];
     int     nb;
     struct sigaction s_sa;
-    pid_t   pid;
 
     nb = 0;
-    pid = getpid();
     s_sa.sa_sigaction = ft_handler;
     sigemptyset (&s_sa.sa_mask);
     s_sa.sa_flags = SA_SIGINFO;
     sigaction(SIGUSR1, &s_sa, NULL );
     sigaction(SIGUSR2, &s_sa, NULL );
-    write(1, "PID : ", 6);
-    ft_putnbr(pid);
-    write(1, "\n", 1);
+    printf("PID = %d\n",getpid());
     while(1)
     {
         pause();

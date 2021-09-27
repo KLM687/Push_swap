@@ -19,6 +19,12 @@
 # include <sys/types.h> 
 # include <time.h>
 
-int ft_atoi(const char *str);
+int         ft_atoi(const char *str);
+void        ft_putnbr(int n);
+void        ft_killbinary(int value, pid_t pid);
+void        ft_sendprocess(char *str, pid_t pid);
+int         ft_convdec(int value);
+void        ft_conv(char *str);
+int         ft_fill(char *str, int nb);
 
 #endif

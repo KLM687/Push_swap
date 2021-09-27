@@ -5,23 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/27 13:21:25 by flee              #+#    #+#             */
-/*   Updated: 2021/09/27 13:21:53 by flee             ###   ########.fr       */
+/*   Created: 2021/09/15 09:48:00 by flee              #+#    #+#             */
+/*   Updated: 2021/09/15 09:48:02 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void	ft_killbinary(int value, pid_t pid)
+void     ft_killbinary(int value, pid_t pid)
 {
-    int	nb;
+    int nb;
     int power;
     int div;
-
+ 
     nb = 0;
     power = 10000000;
     div = 128;
-    while (power > 0)
+    while (power > 0 && value < 128)
     {
         nb += (value / div) * power;
         if ((value / div) == 0)
