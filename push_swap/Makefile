@@ -21,10 +21,11 @@ SRC  = push_swap.c \
        ft_lstlast.c \
        ft_lstnew.c \
        ft_lstsize.c \
+       ft_atoi.c \
 
 CC = gcc
 
-CFLAGS = -Werror -Wextra -Wall
+CFLAGS =
 
 OBJS = $(SRC:.c=.o)
 
