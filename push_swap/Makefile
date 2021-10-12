@@ -26,6 +26,10 @@ SRC  = push_swap.c \
        ft_strdup.c \
        ft_strlen.c \
        ft_isdigit.c \
+       ft_argc_check.c \
+       ft_check_digit.c \
+       ft_check_duplicate.c \
+       ft_fill_argc.c \
 
 CC = gcc
 

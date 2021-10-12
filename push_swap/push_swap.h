@@ -27,6 +27,7 @@ typedef struct s_control
 	t_list *first;
 	t_list *last;
 }	t_control;
+
 void    ft_lstadd_back(t_list **alst, t_list *new);
 void    ft_lstadd_front(t_list **alst, t_list *new);
 void    ft_lstclear(t_list **lst);
@@ -35,11 +36,15 @@ t_list  *ft_lstlast(t_list *lst);
 t_list  *ft_lstnew(int content);
 int     ft_lstsize(t_list *lst);
 
-int		ft_atoi(char *str);
-char    **ft_split(char const *str, char sep);
+int	ft_atoi(char *str);
 char	*ft_itoa(int nb);
 int 	ft_isdigit (int character);
 char	*ft_strdup(char *src);
 size_t	ft_strlen (const char *str);
+t_list	*ft_fill_argc(int argc, char **argv, t_list *stack1);
+t_list	*ft_argc_check(int argc, char **argv, t_list *stack1);
+int	ft_check_digit(int argc, char **argv);
+int 	ft_check_duplicate(int argc, char **argv);
+int	ft_check_duplicate2(int *str, int count);
 
 #endif
