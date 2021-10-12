@@ -6,14 +6,13 @@
 #    By: flee <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/11 11:40:06 by flee              #+#    #+#              #
-#    Updated: 2021/10/11 12:32:10 by flee             ###   ########.fr        #
+#    Updated: 2021/10/12 14:00:42 by flee             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME  =	push_swap
 
 SRC  = push_swap.c \
-       ft_split.c \
        ft_lstadd_back.c \
        ft_lstadd_front.c \
        ft_lstclear.c \
