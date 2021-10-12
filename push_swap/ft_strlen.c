@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/11 15:37:26 by flee              #+#    #+#             */
-/*   Updated: 2021/10/11 13:04:00 by flee             ###   ########.fr       */
+/*   Created: 2021/05/25 13:00:18 by flee              #+#    #+#             */
+/*   Updated: 2021/06/10 17:55:57 by cesco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_lstclear(t_list **lst)
+size_t	ft_strlen (const char *str)
 {
-	t_list	*tmp;
-	t_list	*memory;
+	int	i;
 
-	tmp = *lst;
-	while (tmp)
-	{
-		memory = tmp->next;
-		tmp->next = NULL;
-		free(tmp);
-		tmp = memory;
-	}
-	*lst = NULL;
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }

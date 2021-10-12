@@ -22,6 +22,10 @@ SRC  = push_swap.c \
        ft_lstnew.c \
        ft_lstsize.c \
        ft_atoi.c \
+       ft_itoa.c \
+       ft_strdup.c \
+       ft_strlen.c \
+       ft_isdigit.c \
 
 CC = gcc
 
