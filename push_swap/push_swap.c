@@ -10,23 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
 #include "push_swap.h"
 
 int main (int argc, char **argv)
 {
-	t_list *stack1;
-	int nb;
+	t_list *stackA;
+	t_list *stackB;
 
-	stack1 = NULL;
-	stack1 = ft_argc_check(argc, argv, stack1);
-	if	(stack1 == NULL)
+	stackA = NULL;
+	stackB = NULL;
+	stackA = ft_argc_check(argc, argv, stackA);
+	if	(stackA == NULL)
 	{
 		write(1, "error\n", 6);
 		return (EXIT_FAILURE);
 	}
-	nb = ft_lstsize(stack1);
+	ft_push(&stackA, &stackB);
+	ft_push(&stackA, &stackB);
+	ft_push(&stackA, &stackB);
+	ft_push(&stackA, &stackB);
+	ft_lstview(stackA);
+	ft_lstview(stackB);
 	return (EXIT_SUCCESS);
 }

@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_swap_swap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/11 13:46:45 by flee              #+#    #+#             */
-/*   Updated: 2021/10/11 13:06:14 by flee             ###   ########.fr       */
+/*   Created: 2021/10/13 12:20:06 by flee              #+#    #+#             */
+/*   Updated: 2021/10/13 12:20:08 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_lstsize(t_list *lst)
+void	ft_swap_swap(t_list **stackA, t_list **stackB)
 {
-	int	index;
-
-	index = 0;
-	while (lst)
-	{
-		index++;
-		lst = lst->next;
-	}
-	return (index);
+	ft_swap(stackA);
+	ft_swap(stackB);
 }

@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/11 13:46:45 by flee              #+#    #+#             */
-/*   Updated: 2021/10/11 13:06:14 by flee             ###   ########.fr       */
+/*   Created: 2021/10/13 12:19:09 by flee              #+#    #+#             */
+/*   Updated: 2021/10/13 12:19:11 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_lstsize(t_list *lst)
+void	ft_swap(t_list **stack)
 {
-	int	index;
+	t_list	*tmp;
+	t_list	*tmp2;
+	t_list	*tmp3; 
+	int 	size;
 
-	index = 0;
-	while (lst)
+	size = ft_lstsize(*stack);
+	if (size > 1)
 	{
-		index++;
-		lst = lst->next;
+		tmp = *stack;
+		tmp2 = (*stack)->next;
+		tmp3 = (*stack)->next->next;
+		tmp2->next = tmp;
+		tmp->next = tmp3;
+		*stack = tmp2;
 	}
-	return (index);
 }

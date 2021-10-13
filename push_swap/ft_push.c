@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_push.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/11 13:46:45 by flee              #+#    #+#             */
-/*   Updated: 2021/10/11 13:06:14 by flee             ###   ########.fr       */
+/*   Created: 2021/10/13 14:36:13 by flee              #+#    #+#             */
+/*   Updated: 2021/10/13 14:36:14 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_lstsize(t_list *lst)
+void	ft_push(t_list **source, t_list **target)
 {
-	int	index;
-
-	index = 0;
-	while (lst)
+	t_list *tmp;
+	if (*source != NULL)
 	{
-		index++;
-		lst = lst->next;
+		tmp = (*source)->next;
+		ft_lstadd_front(target, *source);
+		*source = tmp;
 	}
-	return (index);
 }

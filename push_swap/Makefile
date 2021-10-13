@@ -29,10 +29,15 @@ SRC  = push_swap.c \
        ft_check_digit.c \
        ft_check_duplicate.c \
        ft_fill_argc.c \
+       ft_swap.c \
+       ft_swap_swap.c \
+       ft_push.c \
+       ft_rotate.c \
+       ft_lstview.c \
 
 CC = gcc
 
-CFLAGS =
+CFLAGS = -Wall -Werror -Wextra
 
 OBJS = $(SRC:.c=.o)
 

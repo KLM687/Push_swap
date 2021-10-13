@@ -12,15 +12,15 @@
 
 #include "push_swap.h"
 
-t_list	*ft_fill_argc(int argc, char **argv, t_list *stack1)
+t_list	*ft_fill_argc(int argc, char **argv, t_list *stackA)
 {
 	int 	i;
 	
 	i = 1;
 	while (i < argc)
 	{
-		ft_lstadd_back(&stack1, ft_lstnew(ft_atoi(argv[i])));
+		ft_lstadd_back(&stackA, ft_lstnew(ft_atoi(argv[i])));
 		i++;
 	}
-	return(stack1);
+	return(stackA);
 }
