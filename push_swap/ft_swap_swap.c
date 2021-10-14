@@ -14,6 +14,6 @@
 
 void	ft_swap_swap(t_list **stackA, t_list **stackB)
 {
-	ft_swap(stackA);
-	ft_swap(stackB);
+	ft_swap(stackA, 'a');
+	ft_swap(stackB, 'b');
 }

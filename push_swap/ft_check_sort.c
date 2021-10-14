@@ -1,31 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_check_sort.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/11 10:24:47 by flee              #+#    #+#             */
-/*   Updated: 2021/10/11 12:46:18 by flee             ###   ########.fr       */
+/*   Created: 2021/10/14 12:32:48 by flee              #+#    #+#             */
+/*   Updated: 2021/10/14 12:32:49 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main (int argc, char **argv)
+int	ft_check_sort(t_list **stack)
 {
-	t_list *stackA;
-	t_list *stackB;
+	t_list *tmp;
+	int b;
+	int i;
+	int size;
 
-	stackA = NULL;
-	stackB = NULL;
-	stackA = ft_argc_check(argc, argv, stackA);
-	if	(stackA == NULL)
+	size = ft_lstsize(*stack);
+	tmp = *stack;
+	i = 0;
+	b = tmp->content;
+	while (tmp)
 	{
-		write(1, "error\n", 6);
-		return (EXIT_FAILURE);
+		if (b <= tmp->content)
+		{
+			b = tmp->content;
+			i++;
+		}
+		tmp = tmp->next;
 	}
-	ft_sort(&stackA, &stackB);
-	ft_lstview(stackA);
-	return (EXIT_SUCCESS);
+	if (i == size)
+		return (1);
+	else
+		return(0);
 }

@@ -46,10 +46,21 @@ t_list	*ft_argc_check(int argc, char **argv, t_list *stackA);
 int	ft_check_digit(int argc, char **argv);
 int 	ft_check_duplicate(int argc, char **argv);
 int	ft_check_duplicate2(int *str, int count);
-void	ft_swap(t_list **stack);
+
+void	ft_swap(t_list **stack, char a);
 void	ft_swap_swap(t_list **stackA, t_list **stackB);
 void	ft_push(t_list **source, t_list **target);
-void	ft_rotate(t_list **stack);
+void	ft_rotate(t_list **stack, char a);
+void	ft_rot_rot(t_list **stackA, t_list **stackB);
+void	ft_rev_rotate(t_list **stack, char a);
+void	ft_rev_rev(t_list **stackA, t_list **stackB);
+
+int	ft_check_sort(t_list **stack);
+
+void	ft_sort(t_list **stackA, t_list **stackB);
+
+void	ft_sort3(t_list **stackA);
+void	ft_sort3_sort(t_list **stackA, int i);
 
 void	ft_lstview(t_list *stack);
 

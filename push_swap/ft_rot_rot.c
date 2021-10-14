@@ -1,31 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_rot_rot.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/11 10:24:47 by flee              #+#    #+#             */
-/*   Updated: 2021/10/11 12:46:18 by flee             ###   ########.fr       */
+/*   Created: 2021/10/14 11:31:19 by flee              #+#    #+#             */
+/*   Updated: 2021/10/14 11:31:21 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main (int argc, char **argv)
-{
-	t_list *stackA;
-	t_list *stackB;
-
-	stackA = NULL;
-	stackB = NULL;
-	stackA = ft_argc_check(argc, argv, stackA);
-	if	(stackA == NULL)
-	{
-		write(1, "error\n", 6);
-		return (EXIT_FAILURE);
-	}
-	ft_sort(&stackA, &stackB);
-	ft_lstview(stackA);
-	return (EXIT_SUCCESS);
+void	ft_rot_rot(t_list **stackA, t_list **stackB)
+{	
+	ft_rotate(stackA, 'a');
+	ft_rotate(stackB, 'b');
 }

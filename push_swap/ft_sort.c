@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_sort.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/11 10:24:47 by flee              #+#    #+#             */
-/*   Updated: 2021/10/11 12:46:18 by flee             ###   ########.fr       */
+/*   Created: 2021/10/14 11:41:29 by flee              #+#    #+#             */
+/*   Updated: 2021/10/14 11:41:30 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main (int argc, char **argv)
+void	ft_sort(t_list **stackA, t_list **stackB)
 {
-	t_list *stackA;
-	t_list *stackB;
+	int size;
+	t_list *tmp;
 
-	stackA = NULL;
-	stackB = NULL;
-	stackA = ft_argc_check(argc, argv, stackA);
-	if	(stackA == NULL)
-	{
-		write(1, "error\n", 6);
-		return (EXIT_FAILURE);
-	}
-	ft_sort(&stackA, &stackB);
-	ft_lstview(stackA);
-	return (EXIT_SUCCESS);
+	tmp = *stackB;
+	size = ft_lstsize(*stackA);
+	if (size == 3)
+		ft_sort3(stackA);
 }

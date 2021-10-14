@@ -12,24 +12,21 @@
 
 #include "push_swap.h"
 
-void	ft_rotate(t_list **stack)
+void	ft_rotate(t_list **stack, char a)
 {
-	t_list	**tmp;
-	t_list  *tmp1;
-	t_list 	*tmp2;
+	t_list	*tmp;
 	int 	size;
-	int 	i;
 
-	tmp = NULL;	
-	tmp1 = *stack;
-	size = ft_lstsize(tmp1);
-	i = 0;
-	ft_push(stack, tmp);
-	while (i < (size - 1))
-		tmp1 = tmp1->next;
-	tmp2 = tmp1;
-	tmp1=tmp1->next;
-	tmp2->next = NULL;
-	ft_lstadd_front(stack, tmp1);
-	ft_lstadd_back(stack, *tmp);
+	size = ft_lstsize(*stack);
+	if (size > 1)
+	{
+		tmp = NULL;
+		ft_push(stack, &tmp);
+		tmp->next = NULL;
+		ft_lstadd_back(stack, tmp);
+	}
+	if (a == 'a')
+		write(0, "ra\n", 4);
+	else
+		write(0, "rb\n", 4);
 }

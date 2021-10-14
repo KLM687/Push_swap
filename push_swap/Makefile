@@ -33,6 +33,13 @@ SRC  = push_swap.c \
        ft_swap_swap.c \
        ft_push.c \
        ft_rotate.c \
+       ft_rot_rot.c \
+       ft_rev_rotate.c \
+       ft_rev_rev.c \
+       ft_sort.c \
+       ft_sort3.c \
+       ft_sort3_sort.c \
+       ft_check_sort.c \
        ft_lstview.c \
 
 CC = gcc

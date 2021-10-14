@@ -1,31 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_sort3.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/11 10:24:47 by flee              #+#    #+#             */
-/*   Updated: 2021/10/11 12:46:18 by flee             ###   ########.fr       */
+/*   Created: 2021/10/14 11:47:37 by flee              #+#    #+#             */
+/*   Updated: 2021/10/14 11:47:41 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main (int argc, char **argv)
+void	ft_sort3(t_list **stackA)
 {
-	t_list *stackA;
-	t_list *stackB;
+	t_list *tmp;
+	int	max;
+	int	sort;
+	int 	i;
 
-	stackA = NULL;
-	stackB = NULL;
-	stackA = ft_argc_check(argc, argv, stackA);
-	if	(stackA == NULL)
+	tmp = *stackA;
+	sort = ft_check_sort(stackA);
+	i = 0;
+	max = tmp->content;
+	if (sort == 0)
 	{
-		write(1, "error\n", 6);
-		return (EXIT_FAILURE);
+		while (tmp)
+		{
+			if (max <= tmp->content)
+			{	
+				max = tmp->content;
+				i++;
+			}
+			tmp = tmp->next;
+		}
+		ft_sort3_sort(stackA, i);
 	}
-	ft_sort(&stackA, &stackB);
-	ft_lstview(stackA);
-	return (EXIT_SUCCESS);
 }

@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	ft_swap(t_list **stack)
+void	ft_swap(t_list **stack, char a)
 {
 	t_list	*tmp;
 	t_list	*tmp2;
@@ -29,4 +29,8 @@ void	ft_swap(t_list **stack)
 		tmp->next = tmp3;
 		*stack = tmp2;
 	}
+	if (a == 'a')
+		write(0, "sa\n", 4);
+	else
+		write(0, "sb\n", 4);
 }
