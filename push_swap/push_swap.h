@@ -61,6 +61,7 @@ void	ft_sort(t_list **stackA, t_list **stackB);
 
 void	ft_sort3(t_list **stackA);
 void	ft_sort3_sort(t_list **stackA, int i);
+void	ft_sort5(t_list **stackA, t_list **stackB);
 
 void	ft_lstview(t_list *stack);
 

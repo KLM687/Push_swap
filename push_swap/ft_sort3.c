@@ -28,7 +28,7 @@ void	ft_sort3(t_list **stackA)
 		while (tmp)
 		{
 			if (max <= tmp->content)
-			{	
+			{
 				max = tmp->content;
 				i++;
 			}

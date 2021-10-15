@@ -15,10 +15,12 @@
 void	ft_sort(t_list **stackA, t_list **stackB)
 {
 	int size;
-	t_list *tmp;
 
-	tmp = *stackB;
+	(*stackB) =NULL;	
 	size = ft_lstsize(*stackA);
 	if (size == 3)
 		ft_sort3(stackA);
+	/*else if(size <= 5)
+		ft_sort5(stackA, stackB);*/
+	//ft_lstview(*stackA);
 }

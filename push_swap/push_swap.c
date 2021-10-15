@@ -26,6 +26,5 @@ int main (int argc, char **argv)
 		return (EXIT_FAILURE);
 	}
 	ft_sort(&stackA, &stackB);
-	ft_lstview(stackA);
 	return (EXIT_SUCCESS);
 }
