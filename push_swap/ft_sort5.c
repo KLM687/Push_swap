@@ -14,8 +14,7 @@
 
 void	ft_sort5(t_list **stackA, t_list **stackB)
 {
-	(*stackA) = NULL;
-	(*stackB) = NULL;
-
+	ft_grade(stackA);
+	ft_sort5_sort(stackA,stackB);
 
 }
