@@ -35,7 +35,7 @@ void	ft_rev_rotate(t_list **stack, char a)
 		tmp->next = NULL;
 	}
 	if (a == 'a')
-		write(0, "rra\n", 4);
+		write(1, "rra\n", 4);
 	else
-		write(0, "rrb\n", 4);
+		write(1, "rrb\n", 4);
 }

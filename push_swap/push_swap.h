@@ -19,6 +19,7 @@
 typedef struct s_list
 {
 	int content;
+	int grade;
 	struct s_list *next;
 }	t_list;
 
@@ -62,6 +63,7 @@ void	ft_sort(t_list **stackA, t_list **stackB);
 void	ft_sort3(t_list **stackA);
 void	ft_sort3_sort(t_list **stackA, int i);
 void	ft_sort5(t_list **stackA, t_list **stackB);
+void	ft_grade(t_list **stack);
 
 void	ft_lstview(t_list *stack);
 

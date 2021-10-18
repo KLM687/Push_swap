@@ -6,7 +6,8 @@ void	ft_lstview(t_list *lst)
 {
 	while (lst)
 	{
-		printf("%d\n",lst->content);
+		printf("nb = %d\n",lst->content);
+		printf("grade = %d\n",lst->grade);
 		lst = lst->next;
 	}
 	printf("-\n");

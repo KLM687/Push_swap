@@ -22,9 +22,11 @@ int main (int argc, char **argv)
 	stackA = ft_argc_check(argc, argv, stackA);
 	if	(stackA == NULL)
 	{
-		write(1, "error\n", 6);
+		write(1, "Error\n", 6);
 		return (EXIT_FAILURE);
 	}
-	ft_sort(&stackA, &stackB);
+	//ft_sort(&stackA, &stackB);
+	ft_grade(&stackA);
+	ft_lstview(stackA);
 	return (EXIT_SUCCESS);
 }

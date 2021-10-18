@@ -1,42 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort3.c                                         :+:      :+:    :+:   */
+/*   ft_grade.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/14 11:47:37 by flee              #+#    #+#             */
-/*   Updated: 2021/10/14 11:47:41 by flee             ###   ########.fr       */
+/*   Created: 2021/10/18 11:04:15 by flee              #+#    #+#             */
+/*   Updated: 2021/10/18 11:04:16 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_sort3(t_list **stackA)
+int	ft_ok(t_list **stack)
 {
 	t_list *tmp;
-	int	max;
-	int	sort;
-	int	i_max;
-	int 	i;
+	tmp = *stack;
 
-	tmp = *stackA;
-	sort = ft_check_sort(stackA);
-	i = 1;
-	i_max = 0;
-	max = tmp->content;
-	if (sort == 0)
+	while (tmp)
 	{
+		if (tmp->grade == 0)
+			return (1);
+		tmp = tmp->next;
+	}
+	return (0);
+}
+
+void	ft_grade(t_list **stack)
+{
+	int		grade;
+	int 		min;
+	t_list		*tmp;
+	t_list		*tmp_min;
+
+	grade = 1;
+	while(ft_ok(stack))
+	{
+		tmp = *stack;
+		while(tmp && tmp->grade != 0)
+			tmp = tmp->next;
+		min = tmp->content;
+		tmp_min =  tmp;
 		while (tmp)
 		{
-			if (max <= tmp->content)
+			if (tmp->content < min && tmp->grade == 0)
 			{
-				max = tmp->content;
-				i_max = i;
+				min = tmp->content;
+				tmp_min = tmp;
 			}
 			tmp = tmp->next;
-			i++;
 		}
-		ft_sort3_sort(stackA, i_max);
+		tmp_min->grade = grade;
+		grade++;
 	}
 }

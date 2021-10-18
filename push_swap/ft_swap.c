@@ -30,7 +30,7 @@ void	ft_swap(t_list **stack, char a)
 		*stack = tmp2;
 	}
 	if (a == 'a')
-		write(0, "sa\n", 3);
+		write(1, "sa\n", 3);
 	else
-		write(0, "sb\n", 3);
+		write(1, "sb\n", 3);
 }
