@@ -20,7 +20,6 @@ void	ft_sort(t_list **stackA, t_list **stackB)
 	size = ft_lstsize(*stackA);
 	if (size == 3)
 		ft_sort3(stackA);
-	/*else if(size <= 5)
-		ft_sort5(stackA, stackB);*/
-	//ft_lstview(*stackA);
+	else if(size <= 5)
+		ft_sort5(stackA, stackB);
 }

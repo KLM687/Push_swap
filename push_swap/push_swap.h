@@ -50,7 +50,7 @@ int	ft_check_duplicate2(int *str, int count);
 
 void	ft_swap(t_list **stack, char a);
 void	ft_swap_swap(t_list **stackA, t_list **stackB);
-void	ft_push(t_list **source, t_list **target);
+void	ft_push(t_list **source, t_list **target, char a);
 void	ft_rotate(t_list **stack, char a);
 void	ft_rot_rot(t_list **stackA, t_list **stackB);
 void	ft_rev_rotate(t_list **stack, char a);
@@ -63,6 +63,7 @@ void	ft_sort(t_list **stackA, t_list **stackB);
 void	ft_sort3(t_list **stackA);
 void	ft_sort3_sort(t_list **stackA, int i);
 void	ft_sort5(t_list **stackA, t_list **stackB);
+void	ft_sort5_sort(t_list **stackA, t_list **stackB);
 void	ft_grade(t_list **stack);
 
 void	ft_lstview(t_list *stack);

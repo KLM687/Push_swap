@@ -24,7 +24,7 @@ void	ft_rev_rotate(t_list **stack, char a)
 		tmp = NULL;
 		tmp2 =ft_lstlast(*stack);
 		size = ft_lstsize(*stack);
-		ft_push(&tmp2, &tmp);
+		ft_push(&tmp2, &tmp, 'n');
 		ft_lstadd_front(stack, tmp);
 		tmp = *stack;
 		while (size > 1)

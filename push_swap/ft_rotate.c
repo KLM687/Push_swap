@@ -21,7 +21,7 @@ void	ft_rotate(t_list **stack, char a)
 	if (size > 1)
 	{
 		tmp = NULL;
-		ft_push(stack, &tmp);
+		ft_push(stack, &tmp, 'n');
 		tmp->next = NULL;
 		ft_lstadd_back(stack, tmp);
 	}
