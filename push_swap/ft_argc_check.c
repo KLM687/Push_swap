@@ -27,5 +27,7 @@ t_list	*ft_argc_check(int argc, char **argv, t_list *stackA)
 		check1 = ft_check_duplicate(argc, argv);
 	if (check == 0 && check1 == 0)
 		stackA = ft_fill_argc(argc, argv, stackA);
+	if (stackA == NULL)
+		write(1, "Error\n", 6);
 	return (stackA);
 }
