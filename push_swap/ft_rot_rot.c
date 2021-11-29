@@ -16,4 +16,5 @@ void	ft_rot_rot(t_list **stackA, t_list **stackB)
 {	
 	ft_rotate(stackA, 'a');
 	ft_rotate(stackB, 'b');
+	write(1, "rr\n", 3);
 }

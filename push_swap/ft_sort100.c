@@ -12,6 +12,52 @@
 
 #include "push_swap.h"
 
+void	ft_brain_movetop(int rrr, int rr, int move, t_list **stackA, t_list **stackB)
+{
+	if (rrr < rr)
+	{
+		while (rrr > 0 && move > 0)
+		{
+			ft_rev_rev(stackA, stackB);
+			rrr--;
+			move--;
+		}
+		while (rrr > 0)
+		{
+			ft_rev_rotate(stackB, 'b');
+			rrr--;
+		}
+	}
+	while (move > 0)
+	{
+		ft_rev_rotate(stackA, 'a');
+		move--;
+	}
+}
+
+void	ft_brain_movelow(int rrr, int rr, int move, t_list **stackA, t_list **stackB)
+{
+	if (rr < rrr)
+	{
+		while (rr > 0 && move > 0)
+		{
+			ft_rot_rot(stackA, stackB);
+			rr--;
+			move--;
+		}
+		while (rr > 0)
+		{
+			ft_rotate(stackB, 'b');
+			rr--;
+		}
+	}
+	while (move > 0)
+	{
+		ft_rotate(stackA, 'a');
+		move--;
+	}
+}
+
 int		ft_find_rr(int rrr, t_list **stackB)
 {
 	int	size;
@@ -40,7 +86,7 @@ int		ft_find_rrr(int grade, t_list **stackB)
 	return (rrr);
 }
 
-int		ft_find_gradetop(int move, t_list **stackA, char *pos)
+int		ft_find_grade(int move, t_list **stackA, char *pos)
 {
 	t_list *tmp;
 	int grade;
@@ -50,7 +96,6 @@ int		ft_find_gradetop(int move, t_list **stackA, char *pos)
 	size = ft_lstsize(stackA);
 	tmp = *stackA;
 	i = 0;
-	grade = tmp->grade;
 	if (pos == "low")
 		move = move - size + 1;
 	while (i <= move)
@@ -62,17 +107,46 @@ int		ft_find_gradetop(int move, t_list **stackA, char *pos)
 	return (grade);
 }
 
-int		ft_braintop(int move, t_list **stackA, t_list **stackB)
+void	ft_braintop(int move, t_list **stackA, t_list **stackB)
+{
+	int grade;
+	int rrr;
+	int rr;
+	int i;
+
+	grade = ft_find_grade(move, stackA, "top");
+	rrr = ft_find_rrr(grade, stackB);
+	rr = ft_find_rr(rrr, stackB);
+	ft_brain_movetop(rrr, rr, move, stackA, stackB);
+	if (rr < rrr)
+	{                                          
+		while (rr > 0)
+		{
+			ft_rotate(stackB, 'b');
+			rr--;
+		}
+	}
+}
+
+void	ft_brainlow(int move, t_list **stackA, t_list **stackB)
 {
 		int grade;
 		int rrr;
 		int rr;
 		int i;
 
-		grade = ft_find_grade(move, stackA, "top");
+		grade = ft_find_grade(move, stackA, "low");
 		rrr = ft_find_rrr(grade, stackB);
 		rr = ft_find_rr(rrr, stackB);
-		ft_brain_move (rrr, rr, move, stackA, stackB);
+		ft_brain_movelow(rrr, rr, move, stackA, stackB);
+		if (rrr < rr)
+		{
+			while (rrr > 0)
+			{
+				ft_rev_rotate(stackB, 'b');
+				rrr--;
+			}
+		}
 }
 
 int		ft_movelow(t_list **stackA, int chunk)
@@ -104,7 +178,7 @@ int		ft_movetop(t_list **stackA, int chunk)
 
 	move = 0;
 	tmp = *stackA;
-	while (tmp->grade > chunk)
+	while (tmp->grade >= chunk)
 	{
 		tmp = tmp->next;
 		move++;	
@@ -113,22 +187,22 @@ int		ft_movetop(t_list **stackA, int chunk)
 }
 
 
-int		ft_sort100_sort(t_list **stackA,t_list **stackB, int chunk)
+void	ft_sort100_sort(t_list **stackA,t_list **stackB, int chunk)
 {
 	int move1;
 	int move2;
-	int i;
-
-	i = 0;
+	
 	move1 = ft_movetop(stackA, chunk);
 	move2 = ft_movelow(stackA, chunk);
 	if (move1 <= move2)
-		i = ft_braintop(move1, stackA, stackB);
-	else
+		ft_braintop(move1, stackA, stackB);
+	else if (move2 < move1)
+		ft_brainlow(move2, stackA, stackB);
 }
 
 void	ft_sort100(t_list **stackA, t_list **stackB)
 {
+	t_list *tmp;
 	int	size;
 	int chunk;
 	int i;
@@ -137,7 +211,23 @@ void	ft_sort100(t_list **stackA, t_list **stackB)
 	chunk = size / 5;
 	i = 0;
 	ft_grade(stackA);
-	while (i < chunk)
-		i = ft_sort100_sort(stackA, stackB, chunk);
+	while (i < size)
+	{
+		while(i < chunk && i < size)
+		{
+			ft_sort100_sort(stackA, stackB, chunk);
+			ft_push(stackA, stackB, 'a');
+			i++;
+		}
+		chunk += chunk;
+	}
+	if (stackA != NULL)
+		ft_push(stackA, stackB, 'a');
+	tmp = *stackB;
+	while (tmp)
+	{
+		ft_push(stackB, stackA, 'a');
+		tmp = tmp->next;
+	}
 }
 
