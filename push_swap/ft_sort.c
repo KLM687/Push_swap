@@ -22,4 +22,5 @@ void	ft_sort(t_list **stackA, t_list **stackB)
 		ft_sort3(stackA);
 	else if(size <= 5)
 		ft_sort5(stackA, stackB);
+	//else if (size >= 6)
 }

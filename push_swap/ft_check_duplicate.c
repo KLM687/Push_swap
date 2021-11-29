@@ -38,7 +38,7 @@ int	ft_check_duplicate2(int *str, int count)
 
 int 	ft_check_duplicate(int argc, char **argv)
 {
-	int	a;
+	int		a;
 	int 	b;
 	int 	check;
 	int 	*str;
@@ -46,7 +46,7 @@ int 	ft_check_duplicate(int argc, char **argv)
 	a = 1;
 	b = 0;
 	check = 0;
-	str = (int *)malloc(sizeof(int) * (argc));
+	str = (int *)malloc(sizeof(int) * (argc + 1));
 	str[argc] = '\0';
 	while(a < argc)
 	{

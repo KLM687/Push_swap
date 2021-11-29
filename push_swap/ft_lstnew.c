@@ -16,10 +16,11 @@ t_list	*ft_lstnew(int content)
 {
 	t_list	*tmp;
 
-	tmp = (t_list *)malloc(sizeof(t_list));
+	tmp = (t_list *)malloc(sizeof(t_list) * 1);
 	if (tmp)
 	{
 		tmp->content = content;
+		tmp->grade = 0;
 		tmp->next = NULL;
 	}
 	return (tmp);

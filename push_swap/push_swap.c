@@ -27,5 +27,6 @@ int main (int argc, char **argv)
 	}
 	ft_sort(&stackA, &stackB);
 	ft_lstview(stackA);
+	ft_lstclear(&stackA);
 	return (EXIT_SUCCESS);
 }
