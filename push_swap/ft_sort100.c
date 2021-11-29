@@ -63,7 +63,7 @@ int		ft_find_rr(int rrr, t_list **stackB)
 	int	size;
 	int rr;
 
-	size = ft_lstsize(stackB);
+	size = ft_lstsize(*stackB);
 	rr = size - rrr;
 	return (rr);
 }
@@ -86,17 +86,17 @@ int		ft_find_rrr(int grade, t_list **stackB)
 	return (rrr);
 }
 
-int		ft_find_grade(int move, t_list **stackA, char *pos)
+int		ft_find_grade(int move, t_list **stackA, char pos)
 {
 	t_list *tmp;
 	int grade;
 	int size;
 	int	i;
 
-	size = ft_lstsize(stackA);
+	size = ft_lstsize(*stackA);
 	tmp = *stackA;
 	i = 0;
-	if (pos == "low")
+	if (pos == 'l')
 		move = move - size + 1;
 	while (i <= move)
 	{
@@ -112,9 +112,8 @@ void	ft_braintop(int move, t_list **stackA, t_list **stackB)
 	int grade;
 	int rrr;
 	int rr;
-	int i;
 
-	grade = ft_find_grade(move, stackA, "top");
+	grade = ft_find_grade(move, stackA, 't');
 	rrr = ft_find_rrr(grade, stackB);
 	rr = ft_find_rr(rrr, stackB);
 	ft_brain_movetop(rrr, rr, move, stackA, stackB);
@@ -133,9 +132,8 @@ void	ft_brainlow(int move, t_list **stackA, t_list **stackB)
 		int grade;
 		int rrr;
 		int rr;
-		int i;
 
-		grade = ft_find_grade(move, stackA, "low");
+		grade = ft_find_grade(move, stackA, 'l');
 		rrr = ft_find_rrr(grade, stackB);
 		rr = ft_find_rr(rrr, stackB);
 		ft_brain_movelow(rrr, rr, move, stackA, stackB);
@@ -156,10 +154,10 @@ int		ft_movelow(t_list **stackA, int chunk)
 	int		i;
 	int 	size;
 
-	tmp = stackA;
+	tmp = *stackA;
 	move = 0;
 	i = 1;
-	size = ft_lstsize(stackA);
+	size = ft_lstsize(*stackA);
 	while (tmp)
 	{
 		if (tmp->grade <= chunk)
@@ -198,6 +196,8 @@ void	ft_sort100_sort(t_list **stackA,t_list **stackB, int chunk)
 		ft_braintop(move1, stackA, stackB);
 	else if (move2 < move1)
 		ft_brainlow(move2, stackA, stackB);
+	ft_lstview(*stackA);
+	ft_lstview(*stackB);
 }
 
 void	ft_sort100(t_list **stackA, t_list **stackB)
@@ -207,7 +207,7 @@ void	ft_sort100(t_list **stackA, t_list **stackB)
 	int chunk;
 	int i;
 
-	size = ft_lstsize(stackA);
+	size = ft_lstsize(*stackA);
 	chunk = size / 5;
 	i = 0;
 	ft_grade(stackA);
