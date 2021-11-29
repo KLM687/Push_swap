@@ -6,7 +6,7 @@
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 10:49:40 by flee              #+#    #+#             */
-/*   Updated: 2021/10/11 13:05:41 by flee             ###   ########.fr       */
+/*   Updated: 2021/11/29 15:43:26 by cesco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,10 @@ void	ft_sort3(t_list **stackA);
 void	ft_sort3_sort(t_list **stackA, int i);
 void	ft_sort5(t_list **stackA, t_list **stackB);
 void	ft_sort5_sort(t_list **stackA, t_list **stackB);
+void	ft_sort100(t_list **stackA, t_list **stackB);
 void	ft_grade(t_list **stack);
+
+
 
 void	ft_lstview(t_list *stack);
 

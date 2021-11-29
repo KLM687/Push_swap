@@ -6,7 +6,7 @@
 #    By: flee <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/11 11:40:06 by flee              #+#    #+#              #
-#    Updated: 2021/10/12 14:00:42 by flee             ###   ########.fr        #
+#    Updated: 2021/11/29 15:44:36 by cesco            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,7 @@ SRC  = push_swap.c \
        ft_sort3_sort.c \
        ft_sort5.c \
        ft_sort5_sort.c \
+       ft_sort100.c \
        ft_grade.c \
        ft_check_sort.c \
        ft_lstview.c \

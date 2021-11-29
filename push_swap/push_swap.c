@@ -6,7 +6,7 @@
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 10:24:47 by flee              #+#    #+#             */
-/*   Updated: 2021/10/11 12:46:18 by flee             ###   ########.fr       */
+/*   Updated: 2021/11/29 14:45:44 by cesco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int main (int argc, char **argv)
 	if	(stackA == NULL)
 		return (EXIT_FAILURE);
 	ft_sort(&stackA, &stackB);
-	//ft_lstview(stackA);
+	ft_lstview(stackA);
 	ft_lstclear(&stackA);
 	return (EXIT_SUCCESS);
 }
