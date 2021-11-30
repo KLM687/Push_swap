@@ -14,46 +14,46 @@
 
 void	ft_brain_movetop(int rrr, int rr, int move, t_list **stackA, t_list **stackB)
 {
-	if (rrr < rr)
+	if (rrr > rr)
 	{
 		while (rrr > 0 && move > 0)
 		{
-			ft_rev_rev(stackA, stackB);
+			ft_rot_rot(stackA, stackB);
 			rrr--;
 			move--;
 		}
 		while (rrr > 0)
 		{
-			ft_rev_rotate(stackB, 'b');
+			ft_rotate(stackB, 'b');
 			rrr--;
 		}
 	}
 	while (move > 0)
 	{
-		ft_rev_rotate(stackA, 'a');
+		ft_rotate(stackA, 'a');
 		move--;
 	}
 }
 
 void	ft_brain_movelow(int rrr, int rr, int move, t_list **stackA, t_list **stackB)
 {
-	if (rr < rrr)
+	if (rr > rrr)
 	{
 		while (rr > 0 && move > 0)
 		{
-			ft_rot_rot(stackA, stackB);
+			ft_rev_rev(stackA, stackB);
 			rr--;
 			move--;
 		}
 		while (rr > 0)
 		{
-			ft_rotate(stackB, 'b');
+			ft_rev_rotate(stackB, 'b');
 			rr--;
 		}
 	}
 	while (move > 0)
 	{
-		ft_rotate(stackA, 'a');
+		ft_rev_rotate(stackA, 'a');
 		move--;
 	}
 }
@@ -64,7 +64,9 @@ int		ft_find_rr(int rrr, t_list **stackB)
 	int rr;
 
 	size = ft_lstsize(*stackB);
-	rr = size - rrr;
+	rr = 0;
+	if (size > 1)
+		rr = size - rrr;
 	return (rr);
 }
 
@@ -73,18 +75,18 @@ int		ft_find_rrr(int grade, t_list **stackB)
 	t_list 	*tmp;
 	int		rrr;
 	int 	grade0;
+	int		size;
 
-	printf("enter rrr\n");
-	tmp = *stackB;
 	rrr = 0;
-	grade0 = tmp->grade;
-	if (tmp)
+	size = ft_lstsize(*stackB);
+	if (size > 1)
 	{
-		while (grade0 < grade && tmp)
+		tmp = *stackB;
+		grade0 = tmp->grade;
+		while (grade < grade0 && tmp)
 		{
-			printf("enter rrr part2\n");
-			tmp = tmp->next;
 			grade0 = tmp->grade;
+			tmp = tmp->next;
 			rrr++;
 		}
 	}
@@ -115,29 +117,22 @@ int		ft_find_grade(int move, t_list **stackA, char pos)
 void	ft_braintop(int move, t_list **stackA, t_list **stackB)
 {
 	int grade;
-	int size;
 	int rrr;
 	int rr;
 
-	size = ft_lstsize(*stackB);
-	printf("size = %d\n", size);
-	if (size > 1)
-	{
-		grade = ft_find_grade(move, stackA, 't');
-		printf("grade = %d\n", grade);
-		rrr = ft_find_rrr(grade, stackB);
-		printf("rrr = %d\n", rrr);
-		rr = ft_find_rr(rrr, stackB);
-		printf("rr = %d\n", rr);
-		ft_brain_movetop(rrr, rr, move, stackA, stackB);
-		if (rr < rrr)
-		{                                          
-			while (rr > 0)
-			{
-				ft_rotate(stackB, 'b');
-				rr--;
-			}	
-		}
+	grade = ft_find_grade(move, stackA, 't');
+	rrr = ft_find_rrr(grade, stackB);
+	printf("toprrr = %d\n", rrr);
+	rr = ft_find_rr(rrr, stackB);
+	printf("toprr = %d\n", rr);
+	ft_brain_movetop(rrr, rr, move, stackA, stackB);
+	if (rr < rrr)
+	{                                          
+		while (rr > 0)
+		{
+			ft_rotate(stackB, 'b');
+			rr--;
+		}	
 	}
 }	
 
@@ -149,7 +144,9 @@ void	ft_brainlow(int move, t_list **stackA, t_list **stackB)
 
 		grade = ft_find_grade(move, stackA, 'l');
 		rrr = ft_find_rrr(grade, stackB);
+		printf("lowrrr = %d\n", rrr);
 		rr = ft_find_rr(rrr, stackB);
+		printf("lowrr = %d\n", rr);
 		ft_brain_movelow(rrr, rr, move, stackA, stackB);
 		if (rrr < rr)
 		{
@@ -208,13 +205,13 @@ void	ft_sort100_sort(t_list **stackA,t_list **stackB, int chunk)
 	int move2;
 	
 	move1 = ft_movetop(stackA, chunk);
-	printf("mv1 = %d\n", move1);
+	printf("sortmove1 = %d\n", move1);
 	move2 = ft_movelow(stackA, chunk);
-	printf("mv2 = %d\n", move2);
+	printf("sortmove2 = %d\n", move2);
 	if (move1 <= move2)
 		ft_braintop(move1, stackA, stackB);
-	/*else if (move2 < move1)
-		ft_brainlow(move2, stackA, stackB);*/
+	else if (move2 < move1)
+		ft_brainlow(move2, stackA, stackB);
 	ft_push(stackA, stackB, 'a');
 }
 
@@ -230,6 +227,7 @@ void	ft_sort100(t_list **stackA, t_list **stackB)
 	ft_grade(stackA);
 	while (i < size)
 	{
+		printf("chunk = %d\n",chunk);
 		while(i < chunk && i < size)
 		{
 			ft_sort100_sort(stackA, stackB, chunk);
@@ -237,15 +235,13 @@ void	ft_sort100(t_list **stackA, t_list **stackB)
 			printf("-------\n");
 			i++;
 		}
-		chunk += chunk;
+		chunk += (size / 4);
 	}
-	/*if (stackA != NULL)
-		ft_push(stackA, stackB, 'a');
-	tmp = *stackB;
-	while (tmp)
+	ft_lstview(*stackB);
+	while (size > 0)
 	{
 		ft_push(stackB, stackA, 'a');
-		tmp = tmp->next;
-	}*/
+		size--;
+	}
 }
 
