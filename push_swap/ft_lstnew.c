@@ -21,6 +21,7 @@ t_list	*ft_lstnew(int content)
 	{
 		tmp->content = content;
 		tmp->grade = 0;
+		tmp->state = 0;
 		tmp->next = NULL;
 	}
 	return (tmp);

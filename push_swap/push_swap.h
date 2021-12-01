@@ -20,14 +20,9 @@ typedef struct s_list
 {
 	int content;
 	int grade;
+	int	state;
 	struct s_list *next;
 }	t_list;
-
-typedef struct s_control
-{
-	t_list *first;
-	t_list *last;
-}	t_control;
 
 void    ft_lstadd_back(t_list **alst, t_list *new);
 void    ft_lstadd_front(t_list **alst, t_list *new);
@@ -65,6 +60,7 @@ void	ft_sort3_sort(t_list **stackA, int i);
 void	ft_sort5(t_list **stackA, t_list **stackB);
 void	ft_sort5_sort(t_list **stackA, t_list **stackB);
 void	ft_sort100(t_list **stackA, t_list **stackB);
+int 	ft_checktop(t_list **stackA);
 void	ft_grade(t_list **stack);
 
 
