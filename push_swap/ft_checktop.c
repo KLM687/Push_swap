@@ -48,6 +48,21 @@ void    ft_resetLIS(t_list **stackA, int size)
     }
 }
 
+t_list    *ft_change_beacon2(t_list *tmp, t_list *beacon2)
+{
+    beacon2->state = 0;
+    beacon2 = tmp;
+    beacon2->state = 1;
+    return(tmp);
+}
+
+t_list      *ft_set_beacon2(t_list *tmp, t_list *beacon2)
+{
+    beacon2 = tmp;
+    beacon2->state = 1;
+    return (tmp); 
+}
+
 void   ft_LISpart2(t_list *tmp, t_list *beacon1,t_list *beacon2, int grade)
 {
     int state;
@@ -58,18 +73,11 @@ void   ft_LISpart2(t_list *tmp, t_list *beacon1,t_list *beacon2, int grade)
     while (state == 0)
     {
         if (beacon2 == NULL && grade > (beacon1->grade))
-        {
-            beacon2 = tmp;
-            beacon2->state = 1;
-        }
+            beacon2 = ft_set_beacon2(tmp, beacon2);
         if (beacon2 != NULL)
         {
             if (grade < (beacon2->grade) && grade > (beacon1->grade))
-            {
-                beacon2->state = 0;
-                beacon2 = tmp;
-                beacon2->state = 1;
-            }
+                beacon2 = ft_change_beacon2(tmp, beacon2);
             else if (grade > (beacon2->grade) && beacon2)
             {
                 beacon1 = beacon2;
@@ -100,7 +108,6 @@ void    ft_LIS(t_list **stackA, int i)
     tmp->state = 1;
     beacon1 = tmp;
     beacon2 = NULL;
-    printf("beacon1 =%d %d\n",beacon1->grade, beacon1->state);
     ft_LISpart2(tmp, beacon1, beacon2, grade);
 }
 
@@ -117,7 +124,6 @@ int     ft_topLIS(t_list **stackA, int size)
     {
         ft_LIS(stackA, i);
         LIS = ft_countLIS(stackA, size);
-        printf("i = %d LIS =%d\n",i , LIS);
         if (LIS >= maxLIS)
         {
             maxLIS = LIS;
@@ -158,7 +164,6 @@ int     ft_checktop(t_list **stackA)
 
     ft_lstview(*stackA);
     dead = ft_circle(stackA);
-    printf("enter check\n");
     ft_lstview(*stackA);
     return (dead);
 }
