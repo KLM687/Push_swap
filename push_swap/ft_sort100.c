@@ -14,13 +14,10 @@
 
 void	ft_sort100(t_list **stackA, t_list **stackB)
 {
-	int	top;
-	//int low;
-
 	*stackB = NULL;
 	ft_grade(stackA);
-	top = ft_checktop(stackA);
-	printf("top = %d\n", top);
+	ft_checkLIS(stackA);
+	ft_checkLDS(stackA);
 	ft_lstview(*stackA);
 }
 

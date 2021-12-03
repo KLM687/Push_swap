@@ -60,7 +60,7 @@ void	ft_sort3_sort(t_list **stackA, int i);
 void	ft_sort5(t_list **stackA, t_list **stackB);
 void	ft_sort5_sort(t_list **stackA, t_list **stackB);
 void	ft_sort100(t_list **stackA, t_list **stackB);
-int 	ft_checktop(t_list **stackA);
+void 	ft_checkLIS(t_list **stackA);
 void	ft_grade(t_list **stack);
 
 
