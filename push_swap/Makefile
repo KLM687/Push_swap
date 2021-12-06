@@ -44,6 +44,8 @@ SRC  = push_swap.c \
        ft_sort100.c \
        ft_checkLIS.c \
        ft_checkLDS.c \
+       ft_pushLDS.c \
+       ft_pushREST.c \
        ft_grade.c \
        ft_check_sort.c \
        ft_lstview.c \

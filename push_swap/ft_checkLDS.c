@@ -25,7 +25,7 @@ int     ft_countLDS(t_list **stackA, int size)
     while (i < size)
     {
         state = tmp->state;
-        if (state == 1)
+        if (state == 2)
             LDS++;
         tmp = tmp->next;
         i++;
@@ -43,10 +43,8 @@ void    ft_resetLDS(t_list **stackA, int size)
     while (i < size)
     {
         if (tmp->state != 1)
-        {
             tmp->state = 0;
-            tmp = tmp->next;
-        }
+        tmp = tmp->next;
         i++;
     }
 }
@@ -75,13 +73,13 @@ void   ft_LDSpart2(t_list *tmp, t_list *beacon1,t_list *beacon2, int grade)
     grade = tmp->grade;
     while (state == 0 || state == 1)
     {
-        if (beacon2 == NULL && grade > (beacon1->grade) && state != 1)
+        if (beacon2 == NULL && grade < (beacon1->grade) && state != 1)
             beacon2 = ft_set_LDSbeacon2(tmp, beacon2);
         if (beacon2 != NULL && state != 1)
         {
-            if (grade < (beacon2->grade) && grade < (beacon1->grade))
+            if (grade > (beacon2->grade) && grade < (beacon1->grade))
                 beacon2 = ft_change_LDSbeacon2(tmp, beacon2);
-            else if (grade > (beacon2->grade))
+            else if (grade < (beacon2->grade) && beacon2)
             {
                 beacon1 = beacon2;
                 beacon2 = tmp;

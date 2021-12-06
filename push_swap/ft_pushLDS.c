@@ -1,20 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rev_rev.c                                       :+:      :+:    :+:   */
+/*   ft_pushLDS.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/14 11:35:36 by flee              #+#    #+#             */
-/*   Updated: 2021/10/14 11:35:38 by flee             ###   ########.fr       */
+/*   Created: 2021/12/06 12:28:07 by flee              #+#    #+#             */
+/*   Updated: 2021/12/06 13:34:47 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_rev_rev(t_list **stackA, t_list **stackB)
+void    ft_pushLDS(t_list **stackA, t_list **stackB)
 {
-	ft_rev_rotate(stackA, 'r');
-	ft_rev_rotate(stackB, 'r');
-	write(1, "rrr\n", 4);
+    t_list  *tmp;
+    int     size;
+
+    tmp = *stackA;
+    size = ft_lstsize(*stackA);
+    while (size > 0  && tmp)
+    {
+        tmp = *stackA;
+        if ((tmp->state) == 2)
+        {
+            ft_push(stackA, stackB, 'a');
+            tmp = *stackA;
+        }
+        else        
+            ft_rotate(stackA, 'a');
+        size--; 
+    }
 }

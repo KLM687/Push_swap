@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rev_rev.c                                       :+:      :+:    :+:   */
+/*   ft_pushREST.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/14 11:35:36 by flee              #+#    #+#             */
-/*   Updated: 2021/10/14 11:35:38 by flee             ###   ########.fr       */
+/*   Created: 2021/12/06 16:49:06 by flee              #+#    #+#             */
+/*   Updated: 2021/12/06 16:49:07 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-void	ft_rev_rev(t_list **stackA, t_list **stackB)
+void    ft_pushREST(t_list **stackA, t_list **stackB)
 {
-	ft_rev_rotate(stackA, 'r');
-	ft_rev_rotate(stackB, 'r');
-	write(1, "rrr\n", 4);
+    t_list *tmp;
+
+    tmp = stackA;
+    while (tmp)
+    {
+        if (tmp->state == 0)
+            ft_
+    }
 }
