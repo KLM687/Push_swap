@@ -22,7 +22,7 @@ void    ft_pushLDS(t_list **stackA, t_list **stackB)
     while (size > 0  && tmp)
     {
         tmp = *stackA;
-        if ((tmp->state) == 2)
+        if ((tmp->state) == 2 || (tmp->state) == 0)
         {
             ft_push(stackA, stackB, 'a');
             tmp = *stackA;

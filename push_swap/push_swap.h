@@ -63,7 +63,7 @@ void	ft_sort100(t_list **stackA, t_list **stackB);
 void 	ft_checkLIS(t_list **stackA);
 void    ft_checkLDS(t_list **stackA);
 void    ft_pushLDS(t_list **stackA, t_list **stackB);
-void	ft_pushREST(t_list **stackA, t_list **stackB);
+void	ft_pushback(t_list **stackA, t_list **stackB);
 void	ft_grade(t_list **stack);
 
 

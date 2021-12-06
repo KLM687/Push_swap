@@ -19,7 +19,7 @@ void	ft_sort100(t_list **stackA, t_list **stackB)
 	ft_checkLIS(stackA);
 	ft_checkLDS(stackA);
 	ft_pushLDS(stackA, stackB);
-	ft_pushREST(stackA, stackB);
+	ft_pushback(stackA, stackB);
 	//ft_lstview(*stackA);
 	//ft_lstview(*stackB);
 }
