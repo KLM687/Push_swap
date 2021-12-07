@@ -346,12 +346,8 @@ void	ft_pushback(t_list **stackA, t_list **stackB)
 	int	size;
 
 	size = ft_lstsize(*stackB);
-	//printf("enter push back\n");
 	while (size > 0)
 	{
-		//ft_lstview(*stackA);
-		//ft_lstview(*stackB);
-		//printf("-------\n");
 		ft_push_back1(stackA, stackB);
 		size--;
 	}	

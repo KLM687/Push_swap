@@ -29,13 +29,11 @@ int		ft_findmin(t_list **stackA)
 
 void    ft_makeclean(t_list **stackA)
 {
-    printf("enter clean\n");
     int move;
     int size;
 
     move = ft_findmin(stackA);
     size = ft_lstsize(*stackA);
-    printf("move = %d\n", move);
     if (move > (size / 2))
     {
         move = size - move;
@@ -51,5 +49,4 @@ void    ft_makeclean(t_list **stackA)
         ft_rev_rotate(stackA, 'a');
         move++;
     }
-    
 }
