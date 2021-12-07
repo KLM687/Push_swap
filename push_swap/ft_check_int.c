@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort100.c                                       :+:      :+:    :+:   */
+/*   ft_check_int.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cesco <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/29 15:45:13 by cesco             #+#    #+#             */
-/*   Updated: 2021/11/29 16:15:21 by cesco            ###   ########.fr       */
+/*   Created: 2021/12/07 15:51:24 by flee              #+#    #+#             */
+/*   Updated: 2021/12/07 15:51:25 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_sort100(t_list **stackA, t_list **stackB)
+int ft_check_int(int argc, char **argv, t_list *stackA)
 {
-	*stackB = NULL;
-	ft_grade(stackA);
-	ft_checkLIS(stackA);
-	//ft_checkLDS(stackA);
-	ft_pushLDS(stackA, stackB);
-	ft_pushback(stackA, stackB);
-	ft_makeclean(stackA);
-}
+    int i;
+    int ret;
 
+	i = 1;
+    ret = 0;
+	while (i < argc)
+	{
+		ft_lstadd_back(&stackA, ft_lstnew(ft_atoi(argv[i])));
+		i++;
+	}
+    ret = ft_checkstackint(stackA);
+	return(ret);
+}
