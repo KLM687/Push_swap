@@ -20,6 +20,7 @@ void	ft_sort100(t_list **stackA, t_list **stackB)
 	ft_checkLDS(stackA);
 	ft_pushLDS(stackA, stackB);
 	ft_pushback(stackA, stackB);
+	ft_makeclean(stackA);
 	//ft_lstview(*stackA);
 	//ft_lstview(*stackB);
 }

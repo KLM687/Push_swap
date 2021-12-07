@@ -232,7 +232,7 @@ int		ft_moveB_grade(t_list **stackB, int grade) // compte les moves de B trouve 
 		tmp = tmp->next;
 		move++;
 	}
-	if (move > size)
+	if (move > (size / 2))
 	{
 		move = size - move;
 		move *= -1;
@@ -301,17 +301,20 @@ void	ft_finalpush(t_list **stackA, t_list **stackB, int grade)
 {
 	int moveA;
 	int	moveB;
-
+	
 	moveA = ft_moveApush(stackA, grade);
+	//printf("moveA = %d\n",moveA);
 	moveB = ft_moveB_grade(stackB, grade);
+	//printf("moveb = %d\n",moveB);
 	if (moveA >= 0 || moveB >= 0)
 		ft_moverotate(stackA, stackB, moveA, moveB);
 	if(moveA <= 0 || moveB <= 0)
 		ft_moverev(stackA, stackB, moveA, moveB);
+	//printf("WTF\n");
 	ft_push(stackB, stackA, 'b');
 }
 
-void	ft_push_back(t_list **stackA, t_list **stackB) //compare les moves de A et B
+void	ft_push_back1(t_list **stackA, t_list **stackB) //compare les moves de A et B
 {
 	t_list 	*tmp;
 	int		grade;
@@ -334,6 +337,7 @@ void	ft_push_back(t_list **stackA, t_list **stackB) //compare les moves de A et 
 		tmp = tmp->next;
 		i++;
 	}
+	//printf("minmove = %d grade = %d\n",minmove , grade);
 	ft_finalpush(stackA, stackB, grade);
 }
 
@@ -342,11 +346,13 @@ void	ft_pushback(t_list **stackA, t_list **stackB)
 	int	size;
 
 	size = ft_lstsize(*stackB);
+	//printf("enter push back\n");
 	while (size > 0)
 	{
-		ft_push_back(stackA, stackB);
-		size--;
 		//ft_lstview(*stackA);
 		//ft_lstview(*stackB);
-	}
+		//printf("-------\n");
+		ft_push_back1(stackA, stackB);
+		size--;
+	}	
 }
