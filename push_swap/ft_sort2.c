@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_argc_check.c                                    :+:      :+:    :+:   */
+/*   ft_sort2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/12 13:53:13 by flee              #+#    #+#             */
-/*   Updated: 2021/10/12 13:53:15 by flee             ###   ########.fr       */
+/*   Created: 2021/12/07 14:24:57 by flee              #+#    #+#             */
+/*   Updated: 2021/12/07 14:24:59 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*ft_argc_check(int argc, char **argv, t_list *stackA)
+void    ft_sort2(t_list **stackA)
 {
-	int check;
-	int check1;
+    t_list *tmp;
 
-	check = 0;
-	check1 = 0;
-    if (argc < 3)
-        return (NULL);
-	else
-		check = ft_check_digit(argc, argv);
-	if (check == 0)
-		check1 = ft_check_duplicate(argc, argv);
-	if (check == 0 && check1 == 0)
-		stackA = ft_fill_argc(argc, argv, stackA);
-	if (stackA == NULL)
-		write(1, "Error\n", 6);
-	return (stackA);
+    tmp = *stackA;
+    ft_grade(stackA);
+    if(tmp->grade > tmp->next->grade)
+        ft_swap(stackA, 'a');
 }

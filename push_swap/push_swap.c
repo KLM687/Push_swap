@@ -23,7 +23,7 @@ int main (int argc, char **argv)
 	if	(stackA == NULL)
 		return (EXIT_FAILURE);
 	ft_sort(&stackA, &stackB);
-	//ft_lstview(stackA);
+	ft_lstview(stackA);
 	ft_lstclear(&stackA);
 	return (EXIT_SUCCESS);
 }

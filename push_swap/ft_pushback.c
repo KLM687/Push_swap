@@ -311,7 +311,7 @@ void	ft_finalpush(t_list **stackA, t_list **stackB, int grade)
 	if(moveA <= 0 || moveB <= 0)
 		ft_moverev(stackA, stackB, moveA, moveB);
 	//printf("WTF\n");
-	ft_push(stackB, stackA, 'b');
+	ft_push(stackB, stackA, 'a');
 }
 
 void	ft_push_back1(t_list **stackA, t_list **stackB) //compare les moves de A et B
