@@ -6,7 +6,7 @@
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 11:04:15 by flee              #+#    #+#             */
-/*   Updated: 2021/10/18 11:04:16 by flee             ###   ########.fr       */
+/*   Updated: 2021/12/08 12:24:17 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_ok(t_list **stack)
 {
-	t_list *tmp;
-	tmp = *stack;
+	t_list	*tmp;
 
+	tmp = *stack;
 	while (tmp)
 	{
 		if (tmp->grade == 0)
@@ -28,19 +28,19 @@ int	ft_ok(t_list **stack)
 
 void	ft_grade(t_list **stack)
 {
+	t_list	*tmp;
+	t_list	*tmp_min;
 	int		grade;
-	int 		min;
-	t_list		*tmp;
-	t_list		*tmp_min;
+	int		min;
 
 	grade = 1;
-	while(ft_ok(stack))
+	while (ft_ok(stack))
 	{
 		tmp = *stack;
-		while(tmp && tmp->grade != 0)
+		while (tmp && tmp->grade != 0)
 			tmp = tmp->next;
 		min = tmp->content;
-		tmp_min =  tmp;
+		tmp_min = tmp;
 		while (tmp)
 		{
 			if (tmp->content < min && tmp->grade == 0)

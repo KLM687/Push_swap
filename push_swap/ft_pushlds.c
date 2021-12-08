@@ -1,36 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_digit.c                                   :+:      :+:    :+:   */
+/*   ft_pushlds.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/12 13:53:26 by flee              #+#    #+#             */
-/*   Updated: 2021/10/12 13:53:27 by flee             ###   ########.fr       */
+/*   Created: 2021/12/06 12:28:07 by flee              #+#    #+#             */
+/*   Updated: 2021/12/08 12:42:14 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_check_digit(int argc, char **argv)
+void	ft_pushlds(t_list **stackA, t_list **stackB)
 {
-	int	a;
-	int	b;
-	int	check;
+	t_list	*tmp;
+	int		size;
 
-	a = 1;
-	check = 0;
-	while (a < argc)
+	tmp = *stackA;
+	size = ft_lstsize(*stackA);
+	while (size > 0 && tmp)
 	{
-		b = 0;
-		while (argv[a][b] != '\0')
+		tmp = *stackA;
+		if ((tmp->state) == 2 || (tmp->state) == 0)
 		{
-			check = ft_isdigit(argv[a][b]);
-			if (check == 1)
-				return (1);
-			b++;
+			ft_push(stackA, stackB, 'b');
+			tmp = *stackA;
 		}
-		a++;
+		else
+			ft_rotate(stackA, 'a');
+		size--;
 	}
-	return (0);
 }

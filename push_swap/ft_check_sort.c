@@ -14,10 +14,10 @@
 
 int	ft_check_sort(t_list **stack)
 {
-	t_list *tmp;
-	int b;
-	int i;
-	int size;
+	t_list	*tmp;
+	int		b;
+	int		i;
+	int		size;
 
 	size = ft_lstsize(*stack);
 	tmp = *stack;
@@ -35,5 +35,5 @@ int	ft_check_sort(t_list **stack)
 	if (i == size)
 		return (1);
 	else
-		return(0);
+		return (0);
 }

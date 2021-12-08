@@ -6,7 +6,7 @@
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 15:25:31 by flee              #+#    #+#             */
-/*   Updated: 2021/10/13 15:25:33 by flee             ###   ########.fr       */
+/*   Updated: 2021/12/08 12:44:36 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_rotate(t_list **stack, char a)
 {
 	t_list	*tmp;
-	int 	size;
+	int		size;
 
 	size = ft_lstsize(*stack);
 	if (size > 1)

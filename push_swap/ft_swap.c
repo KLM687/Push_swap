@@ -6,7 +6,7 @@
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 12:19:09 by flee              #+#    #+#             */
-/*   Updated: 2021/10/13 12:19:11 by flee             ###   ########.fr       */
+/*   Updated: 2021/12/08 13:00:47 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	ft_swap(t_list **stack, char a)
 {
 	t_list	*tmp;
 	t_list	*tmp2;
-	t_list	*tmp3; 
-	int 	size;
+	t_list	*tmp3;
+	int		size;
 
 	size = ft_lstsize(*stack);
 	if (size > 1)

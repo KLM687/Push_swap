@@ -6,7 +6,7 @@
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 11:41:29 by flee              #+#    #+#             */
-/*   Updated: 2021/11/29 15:42:15 by cesco            ###   ########.fr       */
+/*   Updated: 2021/12/08 12:45:34 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	ft_sort(t_list **stackA, t_list **stackB)
 {
-	int size;
-	int sort;
+	int	size;
+	int	sort;
 
-	(*stackB) = NULL;	
+	(*stackB) = NULL;
 	size = ft_lstsize(*stackA);
 	sort = ft_check_sort(stackA);
 	if (size == 2 && sort == 0)

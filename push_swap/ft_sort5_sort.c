@@ -6,18 +6,17 @@
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 12:48:35 by flee              #+#    #+#             */
-/*   Updated: 2021/10/18 12:48:37 by flee             ###   ########.fr       */
+/*   Updated: 2021/12/08 12:49:54 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "push_swap.h"
 
 int	ft_top5move(t_list **stack, int target)
 {
-	t_list *tmp;
-	int mid;
-	int pos;
+	t_list	*tmp;
+	int		mid;
+	int		pos;
 
 	mid = (ft_lstsize(*stack) / 2);
 	pos = 0;
@@ -27,15 +26,14 @@ int	ft_top5move(t_list **stack, int target)
 		tmp = tmp->next;
 		pos++;
 	}
-	
 	if (pos <= mid)
-		return(-1);
+		return (-1);
 	return (1);
 }
 
-void 	ft_move_min(t_list **stackA, t_list **stackB, int grade)
+void	ft_move_min(t_list **stackA, t_list **stackB, int grade)
 {
-	int i;
+	int	i;
 
 	i = ft_top5move(stackA, grade);
 	while ((*stackA)->grade != grade)
@@ -47,7 +45,6 @@ void 	ft_move_min(t_list **stackA, t_list **stackB, int grade)
 	}
 	ft_push(stackA, stackB, 'b');
 }
-
 
 void	ft_sort5_sort(t_list **stackA, t_list **stackB)
 {

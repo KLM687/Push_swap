@@ -6,7 +6,7 @@
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 11:47:37 by flee              #+#    #+#             */
-/*   Updated: 2021/10/14 11:47:41 by flee             ###   ########.fr       */
+/*   Updated: 2021/12/08 12:47:59 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	ft_sort3(t_list **stackA)
 {
-	t_list *tmp;
-	int	max;
-	int	sort;
-	int	i_max;
-	int 	i;
+	t_list	*tmp;
+	int		max;
+	int		sort;
+	int		i_max;
+	int		i;
 
 	tmp = *stackA;
 	sort = ft_check_sort(stackA);

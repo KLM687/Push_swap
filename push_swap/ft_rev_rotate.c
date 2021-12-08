@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rev_reverse.c                                   :+:      :+:    :+:   */
+/*   ft_rev_rotate.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 10:22:21 by flee              #+#    #+#             */
-/*   Updated: 2021/10/14 10:22:23 by flee             ###   ########.fr       */
+/*   Updated: 2021/12/08 12:43:33 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 void	ft_rev_rotate(t_list **stack, char a)
 {
-	t_list 	*tmp;
-	t_list 	*tmp2;
-	int 	size;
-	
+	t_list	*tmp;
+	t_list	*tmp2;
+	int		size;
+
 	size = ft_lstsize(*stack);
 	if (size > 1)
 	{
 		tmp = NULL;
-		tmp2 =ft_lstlast(*stack);
+		tmp2 = ft_lstlast(*stack);
 		size = ft_lstsize(*stack);
 		ft_push(&tmp2, &tmp, 'n');
 		ft_lstadd_front(stack, tmp);

@@ -6,13 +6,13 @@
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 12:04:45 by flee              #+#    #+#             */
-/*   Updated: 2021/06/10 17:58:13 by cesco            ###   ########.fr       */
+/*   Updated: 2021/12/08 12:25:11 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int 	ft_isdigit (int character)
+int	ft_isdigit(int character)
 {
 	if ((character >= '0' && character <= '9') || character == '-')
 		return (0);

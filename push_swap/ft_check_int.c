@@ -12,18 +12,36 @@
 
 #include "push_swap.h"
 
-int ft_check_int(int argc, char **argv, t_list *stackA)
+int	ft_checkstackint(t_list *stackA)
 {
-    int i;
-    int ret;
+	t_list	*tmp;
+
+	tmp = stackA;
+	while (tmp)
+	{
+		if (tmp->content == 0)
+		{
+			ft_lstclear(&stackA);
+			return (1);
+		}
+		tmp = tmp->next;
+	}
+	ft_lstclear(&stackA);
+	return (0);
+}
+
+int	ft_check_int(int argc, char **argv, t_list *stackA)
+{
+	int	i;
+	int	ret;
 
 	i = 1;
-    ret = 0;
+	ret = 0;
 	while (i < argc)
 	{
-		ft_lstadd_back(&stackA, ft_lstnew(ft_atoi(argv[i])));
+		ft_lstadd_back(&stackA, ft_lstnew(ft_atoi_checkint(argv[i])));
 		i++;
 	}
-    ret = ft_checkstackint(stackA);
-	return(ret);
+	ret = ft_checkstackint(stackA);
+	return (ret);
 }

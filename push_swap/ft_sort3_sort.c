@@ -6,7 +6,7 @@
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 12:55:09 by flee              #+#    #+#             */
-/*   Updated: 2021/10/14 12:55:10 by flee             ###   ########.fr       */
+/*   Updated: 2021/12/08 12:47:08 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_sort3_sort(t_list **stackA, int i)
 {
-	int sort;
+	int	sort;
 
 	if (i == 1)
 		ft_rotate(stackA, 'a');

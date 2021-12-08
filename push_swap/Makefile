@@ -21,12 +21,14 @@ SRC  = push_swap.c \
        ft_lstnew.c \
        ft_lstsize.c \
        ft_atoi.c \
+       ft_atoi_checkint.c \
        ft_itoa.c \
        ft_strdup.c \
        ft_strlen.c \
        ft_isdigit.c \
        ft_argc_check.c \
        ft_check_digit.c \
+       ft_check_int.c \
        ft_check_duplicate.c \
        ft_fill_argc.c \
        ft_swap.c \
@@ -43,9 +45,13 @@ SRC  = push_swap.c \
        ft_sort5.c \
        ft_sort5_sort.c \
        ft_sort100.c \
-       ft_checkLIS.c \
-       ft_checkLDS.c \
-       ft_pushLDS.c \
+       ft_spotpush.c \
+       ft_spot.c \
+       ft_count_move.c \
+       ft_moverotate.c \
+       ft_checklis.c \
+       ft_countlis.c \
+       ft_pushlds.c \
        ft_pushback.c \
        ft_makeclean.c \
        ft_grade.c \

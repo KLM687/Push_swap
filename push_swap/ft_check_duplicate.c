@@ -14,16 +14,16 @@
 
 int	ft_check_duplicate2(int *str, int count)
 {
-	int a;
-	int b;
-	int dup;
+	int	a;
+	int	b;
+	int	dup;
 
 	a = 0;
 	while (a < count)
 	{
 		dup = 0;
 		b = 0;
-		while(b < count)
+		while (b < count)
 		{
 			if (str[a] == str[b])
 				dup++;
@@ -36,19 +36,19 @@ int	ft_check_duplicate2(int *str, int count)
 	return (0);
 }
 
-int 	ft_check_duplicate(int argc, char **argv)
+int	ft_check_duplicate(int argc, char **argv)
 {
-	int		a;
-	int 	b;
-	int 	check;
-	int 	*str;
+	int	a;
+	int	b;
+	int	check;
+	int	*str;
 
 	a = 1;
 	b = 0;
 	check = 0;
 	str = (int *)malloc(sizeof(int) * (argc + 1));
 	str[argc] = '\0';
-	while(a < argc)
+	while (a < argc)
 	{
 		str[b] = ft_atoi(argv[a]);
 		a++;
