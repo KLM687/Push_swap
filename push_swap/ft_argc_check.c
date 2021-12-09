@@ -19,7 +19,7 @@ t_list	*ft_argc_check(int argc, char **argv, t_list *stackA)
 
 	check = 0;
 	check1 = 0;
-	if (argc < 3)
+	if (argc <= 1)
 		return (NULL);
 	else
 		check = ft_check_digit(argc, argv);

@@ -6,7 +6,7 @@
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 13:53:34 by flee              #+#    #+#             */
-/*   Updated: 2021/10/12 13:53:36 by flee             ###   ########.fr       */
+/*   Updated: 2021/12/09 14:12:14 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ int	ft_check_duplicate(int argc, char **argv)
 	b = 0;
 	check = 0;
 	str = (int *)malloc(sizeof(int) * (argc + 1));
+	if (str == NULL)
+		return (0);
 	str[argc] = '\0';
 	while (a < argc)
 	{

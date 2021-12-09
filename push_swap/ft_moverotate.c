@@ -74,7 +74,7 @@ void	ft_moverotate(t_list **stackA, t_list **stackB, int movea, int moveb)
 {	
 	while (movea > 0 && moveb > 0)
 	{
-		ft_rot_rot(stackA, stackB);
+		ft_rot_rot(stackA, stackB, 'p');
 		movea--;
 		moveb--;
 	}

@@ -10,7 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME  =	push_swap
+NAME  =       push_swap
+
+NAME_BONUS =  checker
 
 SRC  = push_swap.c \
        ft_lstadd_back.c \
@@ -22,7 +24,6 @@ SRC  = push_swap.c \
        ft_lstsize.c \
        ft_atoi.c \
        ft_atoi_checkint.c \
-       ft_itoa.c \
        ft_strdup.c \
        ft_strlen.c \
        ft_isdigit.c \
@@ -56,7 +57,36 @@ SRC  = push_swap.c \
        ft_makeclean.c \
        ft_grade.c \
        ft_check_sort.c \
-       ft_lstview.c \
+
+SRC_BONUS = checker.c \
+       get_next_line.c \
+       get_next_line_utils.c \
+       ft_do_swap.c \
+       ft_lstadd_back.c \
+       ft_lstadd_front.c \
+       ft_lstclear.c \
+       ft_lstdelone.c \
+       ft_lstlast.c \
+       ft_lstnew.c \
+       ft_lstsize.c \
+       ft_atoi.c \
+       ft_atoi_checkint.c \
+       ft_strdup.c \
+       ft_strlen.c \
+       ft_isdigit.c \
+       ft_argc_check.c \
+       ft_check_digit.c \
+       ft_check_int.c \
+       ft_check_duplicate.c \
+       ft_fill_argc.c \
+       ft_swap.c \
+       ft_swap_swap.c \
+       ft_push.c \
+       ft_rotate.c \
+       ft_rot_rot.c \
+       ft_rev_rotate.c \
+       ft_rev_rev.c \
+       ft_check_sort.c \
 
 CC = gcc
 
@@ -64,16 +94,23 @@ CFLAGS = -Wall -Werror -Wextra
 
 OBJS = $(SRC:.c=.o)
 
+OBJS_BONUS = $(SRC_BONUS:.c=.o)
+
 all:        $(NAME)
 
 $(NAME):    $(OBJS)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
+bonus:        $(NAME_BONUS)
+
+$(NAME_BONUS):    $(OBJS_BONUS)
+	$(CC) $(CFLAGS) -o $(NAME_BONUS) $(OBJS_BONUS)
+
 clean:
-		/bin/rm -f $(OBJS)
+		/bin/rm -f $(OBJS) $(OBJS_BONUS)
 
 fclean:	clean
-	/bin/rm -f $(NAME)
+	/bin/rm -f $(NAME) $(NAME_BONUS)
 
 re:	fclean all
 

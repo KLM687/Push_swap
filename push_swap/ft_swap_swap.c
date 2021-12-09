@@ -12,8 +12,10 @@
 
 #include "push_swap.h"
 
-void	ft_swap_swap(t_list **stackA, t_list **stackB)
+void	ft_swap_swap(t_list **stackA, t_list **stackB, char a)
 {
-	ft_swap(stackA, 'a');
-	ft_swap(stackB, 'b');
+	ft_swap(stackA, 'n');
+	ft_swap(stackB, 'n');
+	if (a != 'n')
+		write(1, "ss\n", 3);
 }

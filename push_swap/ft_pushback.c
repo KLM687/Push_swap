@@ -16,7 +16,7 @@ void	ft_moverev(t_list **stackA, t_list **stackB, int movea, int moveb)
 {	
 	while (movea < 0 && moveb < 0)
 	{
-		ft_rev_rev(stackA, stackB);
+		ft_rev_rev(stackA, stackB, 'p');
 		movea++;
 		moveb++;
 	}

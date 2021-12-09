@@ -12,9 +12,10 @@
 
 #include "push_swap.h"
 
-void	ft_rev_rev(t_list **stackA, t_list **stackB)
+void	ft_rev_rev(t_list **stackA, t_list **stackB, char a)
 {
 	ft_rev_rotate(stackA, 'r');
 	ft_rev_rotate(stackB, 'r');
-	write(1, "rrr\n", 4);
+	if (a != 'n')
+		write(1, "rrr\n", 4);
 }
